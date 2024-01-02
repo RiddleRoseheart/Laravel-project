@@ -11,7 +11,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-        @auth 
+        @auth()
+            @if(Auth::user()->is_admin)
+            <li class="nav-item">
+            <a class="{{Route::is('admin.dashboard') ? 'active' : ''}} nav-link" href="{{route('admin.dashboard')}}">Dashboard</a>
+        </li>
+            @endif
         <li class="nav-item">
             <a class="nav-link" href="{{route('logout')}}">Logout</a>
         </li>
