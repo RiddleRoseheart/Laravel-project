@@ -44,6 +44,10 @@ that wasnt needed and will be adjusting it however we see fit -->
         </div>
     
         <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-group mb-3">
+   <label for="remember">Remember me</label>
+   <input type="checkbox" name="remember" value="1">
+</div>
     </form>
 </div>
 @endsection

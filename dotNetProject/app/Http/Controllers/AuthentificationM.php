@@ -41,10 +41,20 @@ class AuthentificationM extends Controller
 
        //filtering and extracting data from an HTTP request 
         $credentials = $request -> only('email','password');
-        if(Auth::attempt( $credentials )){
+        //for remembering the user will check if the checkbox was checked 
+        $remember = $request->has('remember');
+        if(Auth::attempt( $credentials, $remember)){
             // why Auth and not AuthentificationM gotta search this up!
             //if true dus pass correct deze gaat de user redirecten
-            return redirect()->intended(route('home'))->with('success','Login succesfull');
+            if(auth()->user()->is_admin){
+                return redirect('admin/dashboard')->with('status', 'Welcome to admin dashboard');
+            } else if(!auth::user()->is_admin){
+                return redirect(route('home'))->with('status', 'Logged in successfully!');
+            }else{
+                return redirect('/');
+            }
+            
+            // return redirect()->intended(route('home'))->with('success','Login succesfull');
     }
     return redirect()->intended(route('login'))->with('error', 'Login details are not valid');//error
 }
