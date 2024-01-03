@@ -11,12 +11,10 @@
 
     <title>@yield('title', 'Custom Auth Laravel')</title>
   </head>
-  <body>
+  <body style=" background-color: lightblue;">
   @include('Include.header')
 
   @yield('content') 
-
-
 
 
 

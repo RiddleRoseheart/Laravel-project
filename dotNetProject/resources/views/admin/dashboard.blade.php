@@ -1,5 +1,4 @@
-@extends('layout')
-@section('title', 'Home Page')
+@extends('admin.adminLayout')
 @section('content')
 @if (session('status'))
 
@@ -7,4 +6,12 @@
        {{ session('status') }}</div>
 @endif
    <h1>Admin Panel</h1>
+
+
+
+
+
+
+
+
 @endsection

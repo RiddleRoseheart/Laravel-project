@@ -18,7 +18,7 @@ use App\Http\Controllers\AuthentificationM;
 
 
 Route::get('/home', function () {
-    return view('welcome');
+    return view('home');
 })->name ('home'); //waar de user geredirect word
 //We will make all the routes relying all the pages together here + navbar
 //still only a get request we need a post request
@@ -38,14 +38,28 @@ Route::group(['/middleware' => 'auth'], function (){
                                                                                     //only vaialble if logged in as admin
 // Route::get('/admin', [DashboardContoller::class, 'index'])->name('admin.dashboard')->middleware(['auth', 'admin']);
 
+// Route::group(['middleware' => ['auth', 'admin']], function () {
+//     // Route::get('/admin/users', [DashboardContoller::class, 'index'])->name('admin.users');
+//     Route::get('/admin', [DashboardContoller::class, 'index'])->name('admin.dashboard');
+//  });
+
+//  Route::group(['middleware' => ['auth', 'admin']], function () {
+//     Route::get('/admin/users', [\App\Http\Controllers\Admin\UserController::class, 'index'])->name('admin.users');
+// });
+
 Route::group(['middleware' => ['auth', 'admin']], function () {
-    Route::get('/admin', [DashboardContoller::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/dashboard', [DashboardContoller::class, 'index'])->name('admin.dashboard');
-
- });
-
- Route::get('users', [App\Http\Controllers\Admin\UserController::class, 'index']);
-
+    Route::get('/admin/users', [\App\Http\Controllers\Admin\UserController::class, 'index'])->name('admin.users');
+});
+Route::patch('/admin/users/{user}/updateRole', [\App\Http\Controllers\Admin\UserController::class, 'updateRole'])->name('admin.updateRole');
 
 
+ Route::get('/about', function () {
+    return view('about');
+})->name ('about');
+
+
+Route::get('/profile', function () {
+    return view('profile');
+})->name ('profile');
 

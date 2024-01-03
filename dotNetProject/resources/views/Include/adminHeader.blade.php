@@ -12,22 +12,17 @@
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
         @auth()
+            <!-- @if(Auth::user()->is_admin) -->
+            <li class="nav-item">
+            <a class="{{Route::is('admin.dashboard') ? 'active' : ''}} nav-link" href="{{route('admin.dashboard')}}">Dashboard</a>
+        </li>
+            <!-- @endif -->
+            <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.users')}}">Users</a>
+        </li>
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link active" href="{{route('about')}}">About Me</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link active" href="{{route('profile')}}">@auth
-            {{auth()->user()->name}} 
-        @endauth</a>
-            </li>
-
-            <li class="nav-item">
             <a class="nav-link" href="{{route('logout')}}">Logout</a>
         </li>
-
         @else
         <li class="nav-item">
             <a class="nav-link" href="{{route('login')}}">Login</a>
@@ -43,5 +38,3 @@
         </div>
     </div>
     </nav>
-
-
