@@ -20,11 +20,19 @@ class UserController extends Controller
 public function updateRole(Request $request, User $user)
 {
     $request->validate([
-        'role_' . $user->id => ['required', Rule::in([0, 1])],
-    ]);
+        'role_' . $user->id => ['required', 'numeric', Rule::in([0, 1])],
+     ]);
 
     $user->update(['is_admin' => $request->{'role_' . $user->id}]);
 
     return redirect()->back()->with('status', 'User role updated successfully');
+}
+
+
+//Delete mijn users
+public function deleteUser(User $user)
+{
+    $user->delete();
+    return redirect()->back()->with('status', 'User deleted successfully');
 }
 }

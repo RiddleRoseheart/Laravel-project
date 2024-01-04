@@ -52,7 +52,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/admin/users', [\App\Http\Controllers\Admin\UserController::class, 'index'])->name('admin.users');
 });
 Route::patch('/admin/users/{user}/updateRole', [\App\Http\Controllers\Admin\UserController::class, 'updateRole'])->name('admin.updateRole');
-
+Route::delete('/admin/users/{user}/delete', [\App\Http\Controllers\Admin\UserController::class, 'deleteUser'])->name('admin.deleteUser');
 
  Route::get('/about', function () {
     return view('about');
