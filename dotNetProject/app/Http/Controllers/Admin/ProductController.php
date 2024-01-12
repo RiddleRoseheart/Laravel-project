@@ -50,7 +50,7 @@ class ProductController extends Controller
             $imagePath = $request->file('image')->store('product_images', 'public');
             $data['image'] = $imagePath;
         }
-        Product::create($request->validated());
+        Product::create($data); //Product::create($request->validated());
 
         return redirect()->route('products.index');
     }

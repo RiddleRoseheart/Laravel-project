@@ -18,60 +18,24 @@
 				</div>
 				<div class="row">
 						<!-- Single Product -->
+                        @foreach ($products as $product)
 						<div class="col-md-6 col-lg-4 col-xl-3">
 								<div id="product-2" class="single-product">
 										<div class="part-1">
 												<span class="discount">New</span>
+                                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
 												<ul>
-														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-														<li><a href="#"><i class="fas fa-heart"></i></a></li>
-														<li><a href="#"><i class="fas fa-plus"></i></a></li>
-														<li><a href="#"><i class="fas fa-expand"></i></a></li>
-												</ul>
+														<!-- <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li> -->
+														<li><a href="#"><i class="fas fa-heart">{{ $product->rating }}</i></a></li>
+														<!-- <li><a href="#"><i class="fas fa-plus"></i></a></li>-->
+                                                        </ul> 
 										</div>
-                                        @foreach ($products as $product)
 										<div class="part-2">
 												<h3 class="product-title">{{$product->name}}</h3>
-												<h4 class="product-price">Rating: {{ $product->rating }}</h4>
-										</div>
-                                        @endforeach
-								</div>
-						</div>
-						<!-- Single Product -->
-						<div class="col-md-6 col-lg-4 col-xl-3">
-								<div id="product-3" class="single-product">
-										<div class="part-1">
-												<ul>
-														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-														<li><a href="#"><i class="fas fa-heart"></i></a></li>
-														<li><a href="#"><i class="fas fa-plus"></i></a></li>
-														<li><a href="#"><i class="fas fa-expand"></i></a></li>
-												</ul>
-										</div>
-										<div class="part-2">
-												<h3 class="product-title">Duck</h3>
-												<h4 class="product-price">$5</h4>
 										</div>
 								</div>
 						</div>
-						<!-- Single Product -->
-						<div class="col-md-6 col-lg-4 col-xl-3">
-								<div id="product-4" class="single-product">
-										<div class="part-1">
-												<span class="new">New</span>
-												<ul>
-														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-														<li><a href="#"><i class="fas fa-heart"></i></a></li>
-														<li><a href="#"><i class="fas fa-plus"></i></a></li>
-														<li><a href="#"><i class="fas fa-expand"></i></a></li>
-												</ul>
-										</div>
-										<div class="part-2">
-												<h3 class="product-title">Toad</h3>
-												<h4 class="product-price">$20</h4>
-										</div>
-								</div>
-						</div>
+                        @endforeach
 				</div>
 		</div>
 </section>
@@ -121,14 +85,6 @@ a:hover {
     margin-bottom: 26px;
 }
 
-.section-products .single-product .part-1 {
-    position: relative;
-    height: 290px;
-    max-height: 290px;
-    margin-bottom: 20px;
-    overflow: hidden;
-}
-
 .section-products .single-product .part-1::before {
 		position: absolute;
 		content: "";
@@ -142,27 +98,6 @@ a:hover {
 
 .section-products .single-product:hover .part-1::before {
 		transform: scale(1.2,1.2) rotate(5deg);
-}
-
-.section-products #product-1 .part-1::before {
-    background: url("https://i.ibb.co/L8Nrb7p/1.jpg") no-repeat center;
-    background-size: cover;
-		transition: all 0.3s;
-}
-
-.section-products #product-2 .part-1::before {
-    background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
-    background-size: cover;
-}
-
-.section-products #product-3 .part-1::before {
-    background: url("https://i.ibb.co/L8Nrb7p/1.jpg") no-repeat center;
-    background-size: cover;
-}
-
-.section-products #product-4 .part-1::before {
-    background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
-    background-size: cover;
 }
 
 .section-products .single-product .part-1 .discount,
@@ -184,13 +119,16 @@ a:hover {
 
 .section-products .single-product .part-1 ul {
     position: absolute;
-    bottom: -41px;
-    left: 20px;
-    margin: 0;
+    bottom: 0;
+    left: 32%; 
+    transform: translateX(-50%);
     padding: 0;
     list-style: none;
     opacity: 0;
     transition: bottom 0.5s, opacity 0.5s;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
 }
 
 .section-products .single-product:hover .part-1 ul {
@@ -223,27 +161,21 @@ a:hover {
     font-size: 1rem;
 }
 
-.section-products .single-product .part-2 h4 {
-    display: inline-block;
-    font-size: 1rem;
-}
 
-.section-products .single-product .part-2 .product-old-price {
+
+
+.section-products .single-product .part-1 {
     position: relative;
-    padding: 0 7px;
-    margin-right: 2px;
-    opacity: 0.6;
+    height: 290px; 
+    margin-bottom: 20px;
+    overflow: hidden;
 }
 
-.section-products .single-product .part-2 .product-old-price::after {
-    position: absolute;
-    content: "";
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: #444444;
-    transform: translateY(-50%);
+
+.section-products .single-product .part-1 img {
+    height: 100%;
+    object-fit: contain;
 }
+
     </style>
 @endsection

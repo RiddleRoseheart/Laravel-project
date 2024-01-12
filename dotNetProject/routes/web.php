@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthentificationM;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,7 +72,7 @@ Route::delete('/admin/users/{user}/delete', [\App\Http\Controllers\Admin\UserCon
 })->name ('about');
 
 
-Route::get('/profile', function () {
-    return view('profile');
-})->name ('profile');
+Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
+Route::get('/updateProfile', [ProfileController::class, 'edit'])->name('updateProfile');
+Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
