@@ -23,4 +23,30 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
+
+  <style>
+body{
+
+color: #444444;
+
+
+background-attachment: fixed;
+
+}
+
+
+body::before {
+content: "";
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-image: url('https://64.media.tumblr.com/acf2accc7b33caa35a93b900bd772b39/tumblr_oxipqzjgoG1wvcbfqo1_1280.gif');
+pointer-events: none;
+background-size: 50%;
+background-position: none; 
+z-index: -1;
+}
+  </style>
 </html>

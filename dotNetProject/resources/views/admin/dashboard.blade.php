@@ -5,7 +5,7 @@
    <div class="alert alert-success">
        {{ session('status') }}</div>
 @endif
-   <h1>Admin Panel</h1>
+   <h1>Welcome Back Nour</h1>
 
 
 
