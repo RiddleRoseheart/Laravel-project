@@ -26,22 +26,23 @@
 </div>
 @endforeach
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Comforter&family=Dawning+of+a+New+Day&family=Fredericka+the+Great&family=Henny+Penny&family=Homemade+Apple&family=Island+Moments&family=Rubik+Doodle+Shadow&family=Salsa&family=Sofia&display=swap');
+
+
 
 
 *, *::before, *::after{
   box-sizing: border-box;
 }
 
-body{
-  font-family: 'Lato', sans-serif;
-  background-color: #ded2ff;
-  color: #42225e;
-}
+
 
 h1{
   margin: 50px 0 30px;
   text-align: center;
+  color: #42225e;
+
+
 }
 
 .faq-container{
@@ -58,24 +59,33 @@ h1{
   position: relative;
   overflow: hidden;
   transition: all .4s ease;
+
 }
 
 .faq.active{
   background-color: #FFF8C9;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+  color: #42225e;
 }
-
+.faq.active .faq-title{
+  
+  color: #42225e;
+}
 .faq-title{
   margin: 0 35px 0 0;
+  color: white;
+
 }
 
 .faq-text{
   display: none;
   margin: 30px 0 0;
+
 }
 
 .faq.active .faq-text{
   display: block;
+  color: #42225e;
 }
 
 .faq-toggle {
@@ -114,6 +124,13 @@ h1{
   background-color: #A555EC;
   border-radius: 50%;
   color:#ffffd9;
+}
+
+body{
+
+color: #444444;
+font-family: 'Henny Penny', system-ui !important;
+
 }
 </style>
 

@@ -52,7 +52,7 @@ class ProductController extends Controller
         }
         Product::create($data); //Product::create($request->validated());
 
-        return redirect()->route('products.index');
+        return redirect()->route('admin.products.index');
     }
 
     /**
@@ -89,7 +89,7 @@ class ProductController extends Controller
     
         $product->update($data);
     
-        return redirect()->route('products.index');
+        return redirect()->route('admin.products.index');
     }
 
 
@@ -103,7 +103,7 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return redirect()->route('products.index');
+        return redirect()->route('admin.products.index');
     }
 
 

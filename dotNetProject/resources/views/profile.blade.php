@@ -129,6 +129,7 @@ p {
             padding-top:40px;
             font-size: 80px;
             margin-bottom: 0;
+            color: #fff;
             
             font-family: 'Henny Penny', system-ui !important;
         }

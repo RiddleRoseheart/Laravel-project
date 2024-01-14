@@ -12,27 +12,31 @@
 				<div class="row justify-content-center text-center">
 						<div class="col-md-8 col-lg-6">
 								<div class="header">
-										<h2>Popular Products</h2>
+                                <h2 style="color: white; font-size:50px; text-decoration:underline; font-weight:bold;">Products</h2>
 								</div>
 						</div>
 				</div>
 				<div class="row">
 						<!-- Single Product -->
-                        @foreach ($products as $product)
-						<div class="col-md-6 col-lg-4 col-xl-3">
+                        @foreach ($products->sortByDesc('created_at') as $product)						
+                        <div class="col-md-6 col-lg-4 col-xl-3 ">
                         <a href="{{ route('admin.product.review', ['product' => $product->id]) }}">
-								<div id="product-2" class="single-product">
-										<div class="part-1">
-												<span class="discount">New</span>
-                                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
+								<div id="product-2" class="single-product " style=" border-radius: 10px; overflow: hidden; box-shadow: 0 0 20px rgba(0, 0, 0, 1); width:80%; ">
+										<div class="part-1 " style="padding:10px; margin-left:20px">
+
+                                        @if(now()->diffInDays($product->created_at) < 1)
+													<span class="discount" style="position: absolute; top: 15px; left: 20px; color: #FFF; background-color: #fe302f; padding: 2px 8px; text-transform: uppercase; font-size: 0.85rem;">New</span>
+												@endif   
+                                                                                            <!-- new enkel 3 dagen blijven -->
+                                                 <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" style="border: 10px ridge #7BD3EA; border-radius: 10px;">
 												<ul>
 														<!-- <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li> -->
 														<li><a href="#"><i class="fas fa-heart">{{ $product->rating }}</i></a></li>
 														<!-- <li><a href="#"><i class="fas fa-plus"></i></a></li>-->
                                                         </ul> 
 										</div>
-										<div class="part-2">
-												<h3 class="product-title">{{$product->name}}</h3>
+										<div class="part-2" style="padding:15px; padding-top:0px;">
+												<h3 class="product-title" style="font-size: 1.1rem;   color: white; ">{{$product->name}}</h3>
 										</div>
 								</div>
                             </a>
@@ -50,17 +54,18 @@
 
 
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Comforter&family=Dawning+of+a+New+Day&family=Fredericka+the+Great&family=Henny+Penny&family=Homemade+Apple&family=Island+Moments&family=Rubik+Doodle+Shadow&family=Salsa&family=Sofia&display=swap');
 
 body {
-    font-family: "Poppins", sans-serif;
-    color: #444444;
+    font-family: 'Henny Penny', system-ui !important;
+    color: black;
 }
 
 a,
 a:hover {
     text-decoration: none;
     color: inherit;
+   
 }
 
 .section-products {
@@ -85,6 +90,8 @@ a:hover {
 
 .section-products .single-product {
     margin-bottom: 26px;
+    backdrop-filter: blur(10px); 
+    background-color: rgba(255, 255, 255, 0.0); 
 }
 
 .section-products .single-product .part-1::before {
@@ -143,7 +150,7 @@ a:hover {
     margin-right: 4px;
 }
 
-.section-products .single-product .part-1 ul li a {
+.section-products .single-product .part-1 ul li {
     display: inline-block;
     width: 40px;
     height: 40px;
