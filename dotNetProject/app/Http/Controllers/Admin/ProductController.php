@@ -105,4 +105,14 @@ class ProductController extends Controller
 
         return redirect()->route('products.index');
     }
+
+
+
+    public function showReview(Product $product): View
+    {
+        return view('review', compact('product'));
+    }
+
+
+
 }

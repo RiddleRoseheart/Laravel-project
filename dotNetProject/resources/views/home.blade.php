@@ -20,6 +20,7 @@
 						<!-- Single Product -->
                         @foreach ($products as $product)
 						<div class="col-md-6 col-lg-4 col-xl-3">
+                        <a href="{{ route('admin.product.review', ['product' => $product->id]) }}">
 								<div id="product-2" class="single-product">
 										<div class="part-1">
 												<span class="discount">New</span>
@@ -34,6 +35,7 @@
 												<h3 class="product-title">{{$product->name}}</h3>
 										</div>
 								</div>
+                            </a>
 						</div>
                         @endforeach
 				</div>
