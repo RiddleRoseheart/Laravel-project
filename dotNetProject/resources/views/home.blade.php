@@ -28,7 +28,8 @@
 													<span class="discount" style="position: absolute; top: 15px; left: 20px; color: #FFF; background-color: #fe302f; padding: 2px 8px; text-transform: uppercase; font-size: 0.85rem;">New</span>
 												@endif   
                                                                                             <!-- new enkel 3 dagen blijven -->
-                                                 <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" style="border: 10px ridge #7BD3EA; border-radius: 10px;">
+                                        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" style="border: 10px ridge #7BD3EA; border-radius: 10px;">
+                                             
 												<ul>
 														<!-- <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li> -->
 														<li><a href="#"><i class="fas fa-heart">{{ $product->rating }}</i></a></li>

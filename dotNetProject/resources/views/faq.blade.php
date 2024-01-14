@@ -2,7 +2,7 @@
 @section('title', 'Home Page')
 @section('content')
 
-
+<!-- https://codepen.io/amal84/pen/ZEPYRMr -->
 
 <h1>Frequently Asked Questions</h1>
 @foreach ($categories as $category)

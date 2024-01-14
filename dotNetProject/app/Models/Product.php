@@ -14,4 +14,8 @@ class Product extends Model
         'rating',
         'image',
     ];
+    public function getImageUrl()
+    {
+        return asset("storage/product_images/{$this->image}");
+    }
 }
