@@ -166,6 +166,9 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'rating' => [ //error for when you rate it higher than 10
+            'between' => 'The rating must be between 0 and 10.',
+        ],
     ],
 
     /*

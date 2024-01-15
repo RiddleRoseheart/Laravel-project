@@ -1,10 +1,17 @@
-@extends('layout')
-@section('title', 'Home Page')
+@extends('admin.adminLayout')
 @section('content')
 @if (session('status'))
 
    <div class="alert alert-success">
        {{ session('status') }}</div>
 @endif
-   <h1>Admin Panel</h1>
+   <h1>Welcome Back Nour</h1>
+
+
+
+
+
+
+
+
 @endsection

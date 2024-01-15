@@ -23,7 +23,8 @@
 
     </div>
     <!-- BOOTSTRAP -->
-    <form action="{{route('registration.post')}}" method="POST" class="ms-auto me-auto mt-3" style="width:500px">
+    <form action="{{route('registration.post')}}" method="POST" class="ms-auto me-auto mt-3" style="width:500px; padding:20px; backdrop-filter: blur(10px); 
+    background-color: rgba(255, 255, 255, 0.1); color:white; font-size:30px;">
         @csrf
         <div class="mb-3">
             <label class="form-label">Fullname</label>

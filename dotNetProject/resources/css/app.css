@@ -1,8 +1,26 @@
-@keyframes fadeOut {
-    0% {opacity: 1;}
-    100% {opacity: 0;} 
+@import url('https://fonts.googleapis.com/css2?family=Comforter&family=Dawning+of+a+New+Day&family=Fredericka+the+Great&family=Henny+Penny&family=Homemade+Apple&family=Island+Moments&family=Rubik+Doodle+Shadow&family=Salsa&family=Sofia&display=swap');
+
+
+
+body{
+
+        font-family: 'Henny Penny', system-ui !important;
+        color: #444444;
+
+    background: linear-gradient(to bottom right, #FFD6E5, #F3E7FF);
+    background-attachment: fixed;
   }
-.alert {
-    animation-name: fadeOut;
-    animation-duration: 5s; 
+  
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://purepng.com/public/uploads/large/purepng.com-gold-starstargeometricallydecagonconcavestardomyellow-stargold-1421526501456pnucr.png');
+    pointer-events: none;
+    z-index: -1;
   }
+  
