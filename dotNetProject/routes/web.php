@@ -9,8 +9,7 @@ use App\Http\Controllers\Admin\DashboardContoller;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\QuestionController;
-
-
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -106,3 +105,6 @@ Route::put('/profile', [ProfileController::class, 'update'])->name('profile.upda
 Route::get('/admin/product/{product}/review', [ProductController::class, 'showReview'])->name('admin.product.review');
 
 Route::get('/faq', [CategoryController::class, 'faq'])->name('faq');
+
+
+Route::post('/comment', [CommentController::class, 'store'])->name('comment.store');

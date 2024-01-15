@@ -18,4 +18,9 @@ class Product extends Model
     {
         return asset("storage/product_images/{$this->image}");
     }
+//relation with our comments
+    public function comments()
+{
+    return $this->hasMany(Comment::class);
+}
 }

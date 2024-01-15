@@ -28,6 +28,29 @@
 </div>
 </div>
 
+<div class="comment-form-container" style="background-color: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border-radius: 10px; padding: 20px; margin-top: 20px; margin-right:25%; margin-left:25%; font-family: Arial !important;">
+
+@if($product->comments)
+    <div class="comments-container" style="text-align: center; margin-top: 20px;">
+        <h2 style="color: #A555EC; font-family: 'Henny Penny', system-ui !important; margin-bottom: 10px;">Comments</h2>
+        @foreach($product->comments as $comment)
+            <div class="comment" style="background-color: #FFF8C9; padding: 10px; margin-bottom: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+                <p style="color: #A555EC;"><strong>{{ $comment->name }}</strong>: {{ $comment->comment }}</p>
+            </div>
+        @endforeach
+    </div>
+@endif
+<div>
+
+<div class="comment-form-container" style="background-color: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border-radius: 10px; padding: 20px; margin-top: 20px; margin-right:25%; margin-left:25%;">
+    <form action="{{ route('comment.store') }}" method="POST">
+        @csrf
+        <input type="hidden" name="product_id" value="{{ $product->id }}">
+        <input type="text" name="name" placeholder="Your name" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #A555EC; border-radius: 5px;">
+        <textarea name="comment" placeholder="Your comment" style="width: 100%; padding: 10px; border: 1px solid #A555EC; border-radius: 5px;"></textarea>
+        <button type="submit" style="background-color: #A555EC; color: #FFF; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">Submit</button>
+    </form>
+</div>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Comforter&family=Dawning+of+a+New+Day&family=Fredericka+the+Great&family=Henny+Penny&family=Homemade+Apple&family=Island+Moments&family=Rubik+Doodle+Shadow&family=Salsa&family=Sofia&display=swap');
